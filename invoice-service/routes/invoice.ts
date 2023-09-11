@@ -40,7 +40,7 @@ router.post(
 
     if (order) {
       const bucketClient = new S3Client({});
-      const key = `${id}-${Date.now()}.html`;
+      const key = `${id}-invoice.html`;
       const command = new PutObjectCommand({
         Bucket: process.env.BUCKET_NAME,
         Key: key,

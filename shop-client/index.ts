@@ -5,4 +5,4 @@ const app = express();
 
 app.use(express.static(resolve(__dirname, "./public/build")));
 
-app.listen(8080, () => console.log("client is up and running"));
+app.listen(process.env.PORT ?? 8080, () => console.log("client is up and running"));

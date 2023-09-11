@@ -1,7 +1,9 @@
-/invoice-service/node_modules
-/order-service/node_modules
+/invoice-service/node_modules/*
+/order-service/node_modules/*
 /invoice-service/.env
 /order-service/.env
-/shop-client/node_modules
+/shop-client/node_modules/*
+/shop-client/public/node_modules/*
+shop-client/public/node_modules
 /target/*
 m.w

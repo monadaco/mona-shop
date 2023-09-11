@@ -10,4 +10,4 @@ app.use(bodyParser.json());
 
 app.use("/invoice", invoiceRouter);
 
-app.listen(8082, () => console.log("client is up and running"));
+app.listen(process.env.PORT ?? 8082, () => console.log("client is up and running"));

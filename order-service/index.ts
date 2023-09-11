@@ -12,4 +12,4 @@ app.use(bodyParser.json());
 app.use("/products", productRouter);
 app.use("/orders", ordersRouter);
 
-app.listen(8081, () => console.log("client is up and running"));
+app.listen(process.env.PORT ?? 8081, () => console.log("client is up and running"));
