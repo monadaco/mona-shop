@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: shop-client
+spec:
+  replicas: 1
+  selectors:
+    matchLabels:
+      app: shop-client
+  template:
+    metadata:
+      labels:
+        app: shop-client
+    spec:
+      containers:
+        - name: shop-client
+        image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/shop-client
+        ports:
+          - containerPort: 8080
+        env:
+          - name: API_URL
+            value: ""
+
+
+# todo: secrets
+      
