@@ -4,7 +4,7 @@ metadata:
   name: order
 spec:
   replicas: 1
-  selectors:
+  selector:  
     matchLabels:
       app: order-service
   template:
@@ -13,27 +13,16 @@ spec:
         app: order-service
     spec:
       serviceAccountName: order-service
-      volumes:
-      - name: secrets-store-inline
-        csi:
-          driver: secrets-store.csi.k8s.io
-          readOnly: true
-          volumeAttributes:
-            secretProviderClass: "aws-secrets"
       containers:
-        - name: order-service
+      - name: order-service
         image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/orders-service
         ports:
           - containerPort: 8081
-        volumeMounts:
-        - name: secrets-store-inline
-          mountPath: "/mnt/secrets-store"
-          readOnly: true
         env:
-          - name: DATABASE_URL
-            valueFrom:
-              secretKeyRef:
-                name: SHOP_DATABASE_URL
+          # - name: DATABASE_URL
+          #   valueFrom:
+          #     secretKeyRef:
+          #       name: SHOP_DATABASE_URL
           - name: BUCKET_NAME
             value: "image-bucket-c82ce065-20230906115510897800000002"
           - name: BUCKET_REGION

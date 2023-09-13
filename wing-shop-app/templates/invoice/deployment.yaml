@@ -4,7 +4,7 @@ metadata:
   name: invoice
 spec:
   replicas: 1
-  selectors:
+  selector:  
     matchLabels:
       app: invoice-service
   template:
@@ -13,27 +13,16 @@ spec:
         app: invoice-service
     spec:
       serviceAccountName: invoice-service
-      volumes:
-        - name: secrets-store-inline
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: "aws-secrets"
       containers:
         - name: invoice-service
           image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/invoice-service
           ports:
             - containerPort: 8082
-          volumeMounts:
-            - name: secrets-store-inline
-              mountPath: "/mnt/secrets-store"
-              readOnly: true
           env:
-            - name: DATABASE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: SHOP_DATABASE_URL
+            # - name: DATABASE_URL
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: SHOP_DATABASE_URL
             - name: BUCKET_NAME
               value: "invoice-bucket-c84309bd-20230906115510896600000001"
             - name: BUCKET_REGION

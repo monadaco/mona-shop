@@ -4,7 +4,7 @@ metadata:
   name: shop-client
 spec:
   replicas: 1
-  selectors:
+  selector:  # Changed "selectors" to "selector"
     matchLabels:
       app: shop-client
   template:
@@ -13,14 +13,12 @@ spec:
         app: shop-client
     spec:
       containers:
-        - name: shop-client
-        image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/shop-client
+      - name: shop-client
+        image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/shop-client  # Fixed the indentation here
         ports:
-          - containerPort: 8080
+        - containerPort: 8080
         env:
-          - name: API_URL
-            value: ""
-
+        - name: API_URL
+          value: ""
 
 # todo: secrets
-      
