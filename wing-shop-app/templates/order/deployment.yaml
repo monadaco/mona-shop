@@ -1,31 +1,31 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata: 
-  name: order
-spec:
-  replicas: 1
-  selector:  
-    matchLabels:
-      app: order-service
-  template:
-    metadata:
-      labels:
-        app: order-service
-    spec:
-      serviceAccountName: order-service
-      containers:
-      - name: order-service
-        image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/orders-service
-        ports:
-          - containerPort: 8081
-        env:
-          # - name: DATABASE_URL
-          #   valueFrom:
-          #     secretKeyRef:
-          #       name: SHOP_DATABASE_URL
-          - name: BUCKET_NAME
-            value: "image-bucket-c82ce065-20230906115510897800000002"
-          - name: BUCKET_REGION
-            value: "us-east-1" 
-          - name: TOPIC_ARN
-            value: "arn:aws:sns:us-east-1:634996749830:dev-topic"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata: 
+#   name: order
+# spec:
+#   replicas: 1
+#   selector:  
+#     matchLabels:
+#       app: order-service
+#   template:
+#     metadata:
+#       labels:
+#         app: order-service
+#     spec:
+#       serviceAccountName: order-service
+#       containers:
+#       - name: order-service
+#         image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/orders-service
+#         ports:
+#           - containerPort: 8081
+#         env:
+#           # - name: DATABASE_URL
+#           #   valueFrom:
+#           #     secretKeyRef:
+#           #       name: SHOP_DATABASE_URL
+#           - name: BUCKET_NAME
+#             value: "image-bucket-c82ce065-20230906115510897800000002"
+#           - name: BUCKET_REGION
+#             value: "us-east-1" 
+#           - name: TOPIC_ARN
+#             value: "arn:aws:sns:us-east-1:634996749830:dev-topic"

@@ -1,24 +1,24 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata: 
-  name: shop-client
-spec:
-  replicas: 1
-  selector:  # Changed "selectors" to "selector"
-    matchLabels:
-      app: shop-client
-  template:
-    metadata:
-      labels:
-        app: shop-client
-    spec:
-      containers:
-      - name: shop-client
-        image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/shop-client  # Fixed the indentation here
-        ports:
-        - containerPort: 8080
-        env:
-        - name: API_URL
-          value: ""
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata: 
+#   name: shop-client
+# spec:
+#   replicas: 1
+#   selector:  # Changed "selectors" to "selector"
+#     matchLabels:
+#       app: shop-client
+#   template:
+#     metadata:
+#       labels:
+#         app: shop-client
+#     spec:
+#       containers:
+#       - name: shop-client
+#         image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/shop-client  # Fixed the indentation here
+#         ports:
+#         - containerPort: 8080
+#         env:
+#         - name: API_URL
+#           value: ""
 
-# todo: secrets
+# # todo: secrets

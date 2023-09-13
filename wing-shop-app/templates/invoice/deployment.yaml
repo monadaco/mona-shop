@@ -1,29 +1,29 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: invoice
-spec:
-  replicas: 1
-  selector:  
-    matchLabels:
-      app: invoice-service
-  template:
-    metadata:
-      labels:
-        app: invoice-service
-    spec:
-      serviceAccountName: invoice-service
-      containers:
-        - name: invoice-service
-          image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/invoice-service
-          ports:
-            - containerPort: 8082
-          env:
-            # - name: DATABASE_URL
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: SHOP_DATABASE_URL
-            - name: BUCKET_NAME
-              value: "invoice-bucket-c84309bd-20230906115510896600000001"
-            - name: BUCKET_REGION
-              value: "us-east-1"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: invoice
+# spec:
+#   replicas: 1
+#   selector:  
+#     matchLabels:
+#       app: invoice-service
+#   template:
+#     metadata:
+#       labels:
+#         app: invoice-service
+#     spec:
+#       serviceAccountName: invoice-service
+#       containers:
+#         - name: invoice-service
+#           image: 634996749830.dkr.ecr.us-east-1.amazonaws.com/invoice-service
+#           ports:
+#             - containerPort: 8082
+#           env:
+#             # - name: DATABASE_URL
+#             #   valueFrom:
+#             #     secretKeyRef:
+#             #       name: SHOP_DATABASE_URL
+#             - name: BUCKET_NAME
+#               value: "invoice-bucket-c84309bd-20230906115510896600000001"
+#             - name: BUCKET_REGION
+#               value: "us-east-1"
