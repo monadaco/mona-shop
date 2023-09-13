@@ -11,11 +11,11 @@ WORKDIR /usr/src/shop-client
 COPY package*.json ./
 
 # Install Node.js dependencies
+COPY . .
 RUN npm ci
 
-COPY . .
 
-RUN npm run build --prefix public
+RUN npm run build
 
 # Bundle app source
 
