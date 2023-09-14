@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:18
+FROM node:18 as prep_image
 
 # Set the working directory inside the container
 WORKDIR /usr/src/shop-client
@@ -14,16 +14,8 @@ COPY package*.json ./
 COPY . .
 RUN npm ci
 
+RUN npm run build --prefix public
 
-RUN npm run build
+FROM nginx
 
-# Bundle app source
-
-
-# Expose the port on which your Node.js application will run
-EXPOSE 8080
-
-ENV PORT 8080
-
-# Command to run your Node.js application
-CMD [ "npm", "start" ]
+COPY --from=prep_image /usr/src/shop-client/dist /usr/share/nginx/html

@@ -20,3 +20,9 @@ kubectl apply -f aws-auth-configmap.yaml
 ```sh
 kubectl describe configmap aws-auth -n kube-system
 ```
+
+## How to set up RBAC on the cluster
+
+edit `eks-cluster/rbac-config.yaml` and add the users you want to add to the cluster
+
+then apply the changes with `kubectl apply -f eks-cluster/rbac-config.yaml`
