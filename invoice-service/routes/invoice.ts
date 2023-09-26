@@ -39,7 +39,7 @@ router.post(
     });
 
     if (order) {
-      const bucketClient = new S3Client({});
+      const bucketClient = new S3Client({ region: process.env.BUCKET_REGION });
       const key = `${id}-invoice.html`;
       const command = new PutObjectCommand({
         Bucket: process.env.BUCKET_NAME,
