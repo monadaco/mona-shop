@@ -13,6 +13,7 @@ RUN npm ci
 
 COPY . .
 
+ENV REACT_APP_API_URL https://orders-service-11934324676bb70d.onporter.run
 
 RUN npm run build --prefix public
 

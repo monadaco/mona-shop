@@ -31,14 +31,13 @@ router.post(
       },
     });
 
-    const topicClient = new SNSClient({});
+    const topicClient = new SNSClient({ region: process.env.BUCKET_REGION });
     const command = new PublishCommand({
       Message: `${created.id}`,
       TopicArn: process.env.TOPIC_ARN,
     });
     await topicClient.send(command);
 
-    // TODO: listen to the queue to create an invoice, save it to the s3, and notify by email
     res.status(200).json({ id: created.id });
   })
 );

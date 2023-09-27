@@ -12,7 +12,7 @@ router.post(
   "/order",
   bodyParser.text({ type: "*/*" }),
   routeWrapper(async (req, res) => {
-    const id = req.body;
+    const { Message: id } = JSON.parse(req.body);
     console.log({ id });
     const order = await prisma.order.findFirst({
       where: { id: Number(id) },
