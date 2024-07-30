@@ -1,0 +1,18 @@
+{
+  "name": "wing-shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "setup-dev": "cd setup-dev && ./run.sh",
+    "start:client": "cd ./shop-client && npm run start-dev",
+    "start:bo": "cd ./shop-bo && npm run start-dev",
+    "start:api": "cd ./order-service && npm run start-dev",
+    "start:all": "concurrently \"npm run start:api\" \"npm run start:client\" \"npm run start:bo\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,7 +1,7 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 import { routeWrapper } from "./route-wrapper";
-import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
+// import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -31,12 +31,13 @@ router.post(
       },
     });
 
-    const topicClient = new SNSClient({});
-    const command = new PublishCommand({
-      Message: `${created.id}`,
-      TopicArn: process.env.TOPIC_ARN,
-    });
-    await topicClient.send(command);
+    //TODO: add SNS in the future
+    // const topicClient = new SNSClient({});
+    // const command = new PublishCommand({
+    //   Message: `${created.id}`,
+    //   TopicArn: process.env.TOPIC_ARN,
+    // });
+    // await topicClient.send(command);
 
     // TODO: listen to the queue to create an invoice, save it to the s3, and notify by email
     res.status(200).json({ id: created.id });

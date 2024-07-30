@@ -1,7 +1,6 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Header } from "./header";
-import { Products } from "./products";
-import { Checkout } from "./checkout";
+import { Admin } from "./admin";
 import { useEffect } from "react";
 import { fetchProducts } from "./state/products";
 import { useDispatch } from "react-redux";
@@ -18,9 +17,8 @@ const App = () => {
       <Header />
       <div className="mx-10 h-full">
         <Routes>
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/" element={<Products />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/:id" element={<Admin />} />
+          <Route path="/" element={<Admin />} />
         </Routes>
       </div>
     </BrowserRouter>

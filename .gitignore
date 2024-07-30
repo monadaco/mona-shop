@@ -1,9 +1,7 @@
-/invoice-service/node_modules/*
-/order-service/node_modules/*
-/invoice-service/.env
-/order-service/.env
-/shop-client/node_modules/*
-/shop-client/public/node_modules/*
-shop-client/public/node_modules
+**/node_modules/**
 /target/*
+/setup-dev/.terraform** 
+/setup-dev/.terraform/** 
+/setup-dev/terraform**
+
 m.w

@@ -30,7 +30,7 @@ const ListItem = ({ id, title, description, image }) => {
     <li className="flex justify-between gap-x-6 py-5">
       <div className="flex min-w-0 gap-x-4">
         <img className="h-12 w-12 flex-none rounded-full bg-gray-50" src={image} alt="" />
-        <Link to={`/admin/${id}`} className="min-w-0 flex-auto">
+        <Link to={`/${id}`} className="min-w-0 flex-auto">
           <p className="text-sm font-semibold leading-6 text-gray-700 flex gap-x-2 items-center hover:underline">
             {title}
             <EditIcon className="stroke-gray-400 h-4 w-4" />
@@ -49,7 +49,7 @@ const ListItem = ({ id, title, description, image }) => {
 };
 
 export const ProductLists = () => {
-  const products = useSelector((state) => state.products.products);
+  const products = useSelector((state) => state.products.products ?? []);
   return (
     <div className="w-1/3 ">
       <h2 className="text-lg font-bold text-gray-700 my-8">Products</h2>
@@ -57,6 +57,7 @@ export const ProductLists = () => {
         {products.map((product) => (
           <ListItem key={product.id} {...product} />
         ))}
+        {products.length === 0 ? <p className="mt-3 text-sm leading-6 text-gray-500">No products</p> : ""}
       </ul>
     </div>
   );
