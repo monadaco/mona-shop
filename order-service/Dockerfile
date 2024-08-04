@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:18
+FROM node:20-alpine
 
 # Set the working directory inside the container
 WORKDIR /usr/src/order-service
@@ -17,9 +17,9 @@ RUN npm ci
 COPY . .
 
 # Expose the port on which your Node.js application will run
-EXPOSE 8081
+EXPOSE 8080
 
-ENV PORT 8081
+ENV PORT 8080
 
 # Command to run your Node.js application
 CMD [ "npm", "start" ]

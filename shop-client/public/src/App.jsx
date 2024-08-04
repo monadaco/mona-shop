@@ -1,10 +1,10 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { Header } from "./header";
-import { Products } from "./products";
-import { Checkout } from "./checkout";
-import { useEffect } from "react";
-import { fetchProducts } from "./state/products";
-import { useDispatch } from "react-redux";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {Header} from "./header";
+import {Products} from "./products";
+import {Checkout} from "./checkout";
+import {useEffect} from "react";
+import {fetchProducts} from "./state/products";
+import {useDispatch} from "react-redux";
 
 const App = () => {
   const dispatch = useDispatch();

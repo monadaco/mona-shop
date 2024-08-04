@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 const uploadFile = async (file: Express.Multer.File) => {
   const key = file.originalname;
 
-  const bucketClient = new S3Client({});
+  const bucketClient = new S3Client({ region: process.env.BUCKET_REGION });
   const command = new PutObjectCommand({
     Bucket: process.env.BUCKET_NAME,
     Key: key,

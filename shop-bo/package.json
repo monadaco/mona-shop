@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "PORT=3001 npm run start --prefix public",
+    "start-dev": "npm run dev --prefix public",
     "start": "npx ts-node ./index.ts"
   },
   "author": "",

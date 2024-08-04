@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../state/orders";
-import { displayPrice } from "../helpers";
+import {useDispatch, useSelector} from "react-redux";
+import {addItem} from "../state/orders";
+import {displayPrice} from "../helpers";
 
 export const Products = () => {
   const dispatch = useDispatch();
@@ -16,17 +16,10 @@ export const Products = () => {
             .map((product) => (
               <div key={product.id} className="group">
                 <div className="aspect-h-1 relative aspect-w-1 w-full overflow-hidden rounded-lg bg-white">
-                  <button
-                    className="invisible group-hover:visible  z-10 absolute left-24 top-32 m-auto rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                    onClick={() => dispatch(addItem({ id: product.id }))}
-                  >
+                  <button className="invisible group-hover:visible  z-10 absolute left-24 top-32 m-auto rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" onClick={() => dispatch(addItem({id: product.id}))}>
                     Add to cart
                   </button>
-                  <img
-                    src={product.image}
-                    alt={product.description}
-                    className=" h-72 w-full object-cover object-center group-hover:opacity-75"
-                  />
+                  <img src={product.image} alt={product.description} className=" h-72 w-full object-cover object-center group-hover:opacity-75" />
                 </div>
                 <h3 className="mt-4 text-sm text-gray-700 font-semibold">{product.title}</h3>
                 <p className="mt-1 text-sm text-gray-500 truncate leading-5">{product.description}</p>

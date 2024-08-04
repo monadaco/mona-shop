@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "./logo.svg";
+import {Link} from "react-router-dom";
+import logo from "./assets/logo.svg";
 
 export const Header = () => {
   return (
@@ -8,7 +8,7 @@ export const Header = () => {
         <div className="relative flex h-16 gap-4 items-center">
           <div className="flex items-center justify-center">
             <Link to="/" className="flex items-center">
-              <Logo width={36} />
+              <img src={logo} className="w-12" />
             </Link>
           </div>
           <p className=" text-zinc-200 font-bold">Admin Panel</p>
