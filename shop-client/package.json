@@ -5,13 +5,14 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "npm run start --prefix public",
+    "start-dev": "VITE_API_URL=http://localhost:8081 npm run dev --prefix public",
     "start": "npx ts-node ./index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^3.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.17"

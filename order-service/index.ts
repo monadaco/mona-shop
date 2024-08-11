@@ -11,11 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/api/products", productRouter);
-app.use("/api/orders", ordersRouter);
+app.use("/products", productRouter);
+app.use("/orders", ordersRouter);
 
-app.use("*", (req, res) => {
-  res.send(req.path);
-});
-
-app.listen(process.env.PORT ?? 8081, () => console.log("client is up and running"));
+app.listen(process.env.PORT ?? 8081, () => console.log(`client is up and running on port ${process.env.PORT ?? 8081}`));
